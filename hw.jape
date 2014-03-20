@@ -1,0 +1,12 @@
+Phase: Mark
+Input: Token
+Options: control = brill
+ 
+Rule: Mark
+Priority: 20
+(
+ {Token.category == VBN}|{Token.category == JJ}
+):reference
+-->
+ :reference.Marked = {category = :reference.Token.category, string = :reference.Token.stem}
+ 
