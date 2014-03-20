@@ -168,15 +168,18 @@ public class GateClient {
                     //System.out.println("Category: " + value);*/
                 }
                 System.out.println();
-                System.out.println("pos:"+pos);
-                System.out.println("neg:"+neg);
-                if(pos>neg){
+                System.out.println("sum:"+(pos+neg)+" 100%");
+                double poss=(double)pos/(double)(pos+neg)*100;
+                System.out.println("pos:"+pos+" "+poss+"%");
+                double negs=(double)neg/(double)(pos+neg)*100;
+                System.out.println("neg:"+neg+" "+negs+"%");
+                double limit=60;
+                if(poss>limit){
                     System.out.println("Positive! (+)");
-                }
-                if(pos<neg){
+                }else
+                if(negs>limit){
                     System.out.println("Negative! (-)");
-                }
-                if(pos==neg){
+                }else{
                     System.out.println("Neutral! (*)");
                 }
             }
