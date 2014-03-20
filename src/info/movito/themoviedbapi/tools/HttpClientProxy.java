@@ -26,7 +26,7 @@ public class HttpClientProxy implements UrlReader {
         if (httpClient != null) {
             try {
                 HttpGet httpGet = new HttpGet(url.toURI());
-                //httpGet.addHeader("accept", "application/json");
+                httpGet.addHeader("accept", "application/json");
                 return httpClient.requestContent(httpGet);
             } catch (URISyntaxException ex) {
                 throw new MovieDbException(MovieDbException.MovieDbExceptionType.CONNECTION_ERROR, null, ex);

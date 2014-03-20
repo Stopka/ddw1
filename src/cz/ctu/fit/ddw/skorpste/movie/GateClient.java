@@ -37,7 +37,7 @@ public class GateClient {
     // whether the GATE is initialised
     private static boolean isGateInitilised = false;
     
-    public void run(String text){
+    public int run(String text){
         
         if(!isGateInitilised){
             
@@ -176,11 +176,14 @@ public class GateClient {
                 double limit=60;
                 if(poss>limit){
                     System.out.println("Positive! (+)");
+                    return 1;
                 }else
                 if(negs>limit){
                     System.out.println("Negative! (-)");
+                    return -1;
                 }else{
                     System.out.println("Neutral! (*)");
+                    return 0;
                 }
             }
         } catch (GateException ex) {
@@ -191,6 +194,7 @@ public class GateClient {
         } catch(FileNotFoundException ex){
             System.out.println(ex.toString());
         }
+        return 0;
     }
 
     private void initialiseGate() {
